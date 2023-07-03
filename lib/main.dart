@@ -14,11 +14,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Regra de três',
       theme: ThemeData(
-        textTheme: const TextTheme(
-          titleMedium: TextStyle(color: Colors.white),
-          titleLarge: TextStyle(color: Colors.white),
-          titleSmall: TextStyle(color: Colors.white),
-        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
