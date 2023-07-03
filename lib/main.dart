@@ -11,10 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Regra de três',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 26, 18, 187)),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(color: Colors.white),
+          titleLarge: TextStyle(color: Colors.white),
+          titleSmall: TextStyle(color: Colors.white),
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
       home: const MainPage(),

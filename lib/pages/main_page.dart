@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:regra_de_tres_2023/custom_text_field.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -20,124 +19,171 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: const Text(
-          'Regra de Três',
-          style: TextStyle(fontSize: 28),
+        title: const Center(
+          child: Text(
+            'Regra de Três',
+            style: TextStyle(fontSize: 28, color: Colors.white),
+          ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const Text(
-            'Calcule com a regra de três!',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Container(
+          padding:
+              const EdgeInsets.only(bottom: 50, left: 12, right: 12, top: 12),
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Colors.blueGrey,
+                  Colors.black,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            label: const Text('A'),
-                            isDense: true,
-                            labelStyle: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                            enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Resolva problemas envolvendo duas grandezas proporcionais!',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 200,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            style: const TextStyle(color: Colors.white),
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor:
+                                  const Color.fromARGB(23, 107, 102, 102),
+                              label: const Text('A'),
+                              isDense: true,
+                              labelStyle: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
+                            controller: _controllerA,
                           ),
-                          controller: _controllerA,
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            label: const Text('Está para B'),
-                            isDense: true,
-                            labelStyle: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                            enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: TextFormField(
+                            style: const TextStyle(color: Colors.white),
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor:
+                                  const Color.fromARGB(23, 107, 102, 102),
+                              label: const Text('Está para B'),
+                              isDense: true,
+                              labelStyle: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
+                            controller: _controllerB,
                           ),
-                          controller: _controllerB,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                const Text(
-                  'Assim como',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            label: const Text('C'),
-                            isDense: true,
-                            labelStyle: const TextStyle(
-                                fontSize: 24,
+                  const Text(
+                    'Assim como',
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 200,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            style: const TextStyle(color: Colors.white),
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor:
+                                  const Color.fromARGB(23, 107, 102, 102),
+                              label: const Text('C'),
+                              isDense: true,
+                              labelStyle: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            controller: _controllerC,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Está para $x',
+                            style: const TextStyle(
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
-                            enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
                           ),
-                          controller: _controllerC,
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(x),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      a = double.parse(_controllerA.text);
-                      b = double.parse(_controllerB.text);
-                      c = double.parse(_controllerC.text);
-                      x = ((b * c) / a).toString();
-                      print(a);
-                      //a = _controllerA as double?;
-                      //b = _controllerB as double?;
-                      //c = _controllerC as double?;
-                      //x = ((b! * c!) / a!).toString();
-                    });
-                  },
-                  child: const Text('Calcular'),
-                )
-              ],
-            ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        side: const BorderSide(width: 1.0, color: Colors.white),
+                        backgroundColor: Colors.transparent,
+                        elevation: 0),
+                    onPressed: () {
+                      setState(() {
+                        a = double.parse(_controllerA.text);
+                        b = double.parse(_controllerB.text);
+                        c = double.parse(_controllerC.text);
+                        x = ((b * c) / a).toStringAsFixed(2);
+                      });
+                    },
+                    child: const Text(
+                      'Calcular',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
